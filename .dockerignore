@@ -1,0 +1,15 @@
+.git
+.gitignore
+.github
+*.md
+!README.md
+__pycache__
+*.pyc
+*.pyo
+.venv
+venv
+samples
+*.png
+*.jpg
+*.log
+.env

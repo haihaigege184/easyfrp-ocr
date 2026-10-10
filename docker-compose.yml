@@ -1,0 +1,22 @@
+services:
+  ef-ocr:
+    image: ghcr.io/haihaigege184/easyfrp-ocr:latest
+    build: .
+    container_name: ef-ocr
+    restart: unless-stopped
+    # 映射到宿主机 0.0.0.0:13003 —— 同宿主机上的青龙容器
+    # 可用 http://172.17.0.1:13003/ocr 直接访问
+    ports:
+      - "13003:13003"
+    environment:
+      - TZ=Asia/Shanghai
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import json,urllib.request;d=json.load(urllib.request.urlopen('http://127.0.0.1:13003/health',timeout=10));raise SystemExit(0 if d.get('ok') else 1)"
+      interval: 30s
+      timeout: 15s
+      start_period: 120s
+      retries: 3

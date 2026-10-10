@@ -1,0 +1,6 @@
+# 版本与生产环境实测一致的组合，避免 ddddocr 行为漂移影响 clean 命中率
+ddddocr==1.6.1
+onnxruntime==1.31.0
+numpy==2.4.6
+pillow==12.3.0
+opencv-python-headless==5.0.0.93
