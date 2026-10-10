@@ -145,7 +145,8 @@ class Handler(BaseHTTPRequestHandler):
                 "channels": ["raw", "bright"],
                 "loaded": eng is not None,
                 "error": _load_err,
-                "loadSec": round(time.time() - _load_at, 1) if _load_at else None,
+                # 引擎加载完成至今的秒数（不是加载耗时）
+                "uptimeSec": round(time.time() - _load_at, 1) if _load_at else None,
             })
         else:
             self._reply(404, {"ok": False, "error": "not found"})

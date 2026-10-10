@@ -66,8 +66,10 @@ docker run -d --name ef-ocr --restart unless-stopped -p 13003:13003 easyfrp-ocr
 
 ```json
 {"ok": true, "engine": "ddddocr", "channels": ["raw", "bright"],
- "loaded": true, "error": null, "loadSec": 31.2}
+ "loaded": true, "error": null, "uptimeSec": 31.2}
 ```
+
+> `uptimeSec` = 引擎加载完成至今的秒数（不是加载耗时）。
 
 ### `POST /ocr`
 
